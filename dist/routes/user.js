@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.router = void 0;
+const express_1 = require("express");
+exports.router = (0, express_1.Router)();
+const authentication_1 = require("../controller/authentication");
+const user_1 = require("../controller/user");
+exports.router.post('/authentication/signup', authentication_1.registration);
+exports.router.post('/login', authentication_1.login);
+exports.router.get('/me/:token', authentication_1.loadUser);
+exports.router.patch('/update/:id', user_1.updateProfile);
+exports.router.get('/', user_1.users);
+exports.router.get('/:id', user_1.user);
+exports.router.patch('/change/:id', user_1.change_password);
+exports.router.delete('/delete/:id', user_1.delete_user);
